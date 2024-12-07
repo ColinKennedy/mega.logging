@@ -1,5 +1,5 @@
 rockspec_format = "3.0"
-package = "plugin-template"
+package = "mega.logging"
 version = "scm-1"
 
 local user = "ColinKennedy"
@@ -8,7 +8,7 @@ description = {
     homepage = "https://github.com/" .. user .. "/" .. package,
     labels = { "neovim", "neovim-plugin" },
     license = "MIT",
-    summary = 'A "Best Practices" Neovim plugin template',
+    summary = 'A Neovim plugin for logging to Neovim or to disk',
 }
 
 test_dependencies = {

@@ -1,0 +1,193 @@
+==============================================================================
+------------------------------------------------------------------------------
+A generalized logging for Lua. It's similar to Python's built-in logger.
+
+------------------------------------------------------------------------------
+*mega.logging.SparseLoggerOptions*
+   All of the customizations a person can make to a logger instance.
+
+Fields ~
+    {float_precision} `(number?)`
+       A positive value (max of 1) to indicate the rounding precision. e.g.
+       0.01 rounds to every hundredths.
+    {level} ("trace" | "debug" | "info" | "warn" | "error" | "fatal")?
+       The minimum severity needed for this logger instance to output a log.
+    {name} `(string?)`
+       An identifier for this logger.
+    {output_path} `(string?)`
+       A path on-disk where logs are written to, if any.
+    {use_console} `(boolean?)`
+       If `true`, logs are printed to the terminal / console.
+    {use_file} `(boolean?)`
+       If `true`, logs are written to `output_path`.
+    {use_highlights} `(boolean?)`
+       If `true`, logs are colorful. If `false`, they're mono-colored text.
+    {use_neovim_commands} `(boolean?)`
+       If `true`, allow logs to submit as Neovim commands. If `false`, only
+       built-in Lua commands will be used. This is useful if you want to log
+       within a libuv thread and don't want to call `vim.schedule()`.
+
+------------------------------------------------------------------------------
+*mega.logging.LoggerOptions*
+   All of the customizations a person can make to a logger instance.
+
+Fields ~
+    {float_precision} `(number)`
+       A positive value (max of 1) to indicate the rounding precision. e.g.
+       0.01 rounds to every hundredths.
+    {level} "trace" | "debug" | "info" | "warn" | "error" | "fatal"
+       The minimum severity needed for this logger instance to output a log.
+    {name} `(string)`
+       An identifier for this logger.
+    {output_path} `(string)`
+       A path on-disk where logs are written to, if any.
+    {use_console} `(boolean)`
+       If `true`, logs are printed to the terminal / console.
+    {use_file} `(boolean)`
+       If `true`, logs are written to `output_path`.
+    {use_highlights} `(boolean)`
+       If `true`, logs are colorful. If `false`, they're mono-colored text.
+    {use_neovim_commands} `(boolean)`
+       If `true`, allow logs to submit as Neovim commands. If `false`, only
+       built-in Lua commands will be used. This is useful if you want to log
+       within a libuv thread and don't want to call `vim.schedule()`.
+
+------------------------------------------------------------------------------
+                                                   *mega.logging.Logger:debug()*
+
+`mega.logging.Logger:debug`({...})
+
+Send a message that is intended for developers to the logger.
+
+Parameters ~
+    {...} `(any)` Any arguments.
+
+------------------------------------------------------------------------------
+                                                   *mega.logging.Logger:error()*
+
+`mega.logging.Logger:error`({...})
+
+Send a "we could not recover from some issue" message to the logger.
+
+Parameters ~
+    {...} `(any)` Any arguments.
+
+------------------------------------------------------------------------------
+                                                   *mega.logging.Logger:fatal()*
+
+`mega.logging.Logger:fatal`({...})
+
+Send a "this issue affects multiple systems. It's a really bad error" message to the logger.
+
+Parameters ~
+    {...} `(any)` Any arguments.
+
+------------------------------------------------------------------------------
+                                               *mega.logging.Logger:fmt_debug()*
+
+`mega.logging.Logger:fmt_debug`({...})
+
+Send a message that is intended for developers to the logger.
+
+Parameters ~
+    {...} `(any)` Any arguments.
+
+------------------------------------------------------------------------------
+                                               *mega.logging.Logger:fmt_error()*
+
+`mega.logging.Logger:fmt_error`({...})
+
+Send a "we could not recover from some issue" message to the logger.
+
+Parameters ~
+    {...} `(any)` Any arguments.
+
+------------------------------------------------------------------------------
+                                               *mega.logging.Logger:fmt_fatal()*
+
+`mega.logging.Logger:fmt_fatal`({...})
+
+Send a "this issue affects multiple systems. It's a really bad error" message to the logger.
+
+Parameters ~
+    {...} `(any)` Any arguments.
+
+------------------------------------------------------------------------------
+                                                *mega.logging.Logger:fmt_info()*
+
+`mega.logging.Logger:fmt_info`({...})
+
+Send a user-facing message to the logger.
+
+Parameters ~
+    {...} `(any)` Any arguments.
+
+------------------------------------------------------------------------------
+                                             *mega.logging.Logger:fmt_warning()*
+
+`mega.logging.Logger:fmt_warning`({...})
+
+Send a "this might be an issue or we recovered from an error" message to the logger.
+
+Parameters ~
+    {...} `(any)` Any arguments.
+
+------------------------------------------------------------------------------
+                                                    *mega.logging.Logger:info()*
+
+`mega.logging.Logger:info`({...})
+
+Send a user-facing message to the logger.
+
+Parameters ~
+    {...} `(any)` Any arguments.
+
+------------------------------------------------------------------------------
+                                                 *mega.logging.Logger:warning()*
+
+`mega.logging.Logger:warning`({...})
+
+Send a "this might be an issue or we recovered from an error" message to the logger.
+
+Parameters ~
+    {...} `(any)` Any arguments.
+
+------------------------------------------------------------------------------
+                                                     *mega.logging.Logger.new()*
+
+`mega.logging.Logger.new`({options})
+
+Create a new logger according to `options`.
+
+Parameters ~
+    {options} mega.logging.LoggerOptions The logger to create.
+
+Return ~
+    mega.logging.Logger The created instance.
+
+------------------------------------------------------------------------------
+                                            *mega.logging.Logger:get_log_path()*
+
+`mega.logging.Logger:get_log_path`()
+
+
+Return ~
+    `(string)` `(optional)` The path on-disk where logs will be written to.
+
+------------------------------------------------------------------------------
+                                                     *mega.logging.get_logger()*
+
+`mega.logging.get_logger`({options})
+
+Find an existing logger with `name` or create one if it does not exist already.
+
+Parameters ~
+    {options} mega.logging.LoggerOptions | mega.logging.SparseLoggerOptions | `(string)` The logger to create.
+
+Return ~
+    mega.logging.Logger The created instance.
+
+
+WARNING: This file is auto-generated. Do not edit it!
+
+ vim:tw=78:ts=8:noet:ft=help:norl:
