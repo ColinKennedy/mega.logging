@@ -1,5 +1,5 @@
 rockspec_format = "3.0"
-package = "plugin-template"
+package = "aggro.logging"
 version = "scm-1"
 
 local user = "ColinKennedy"
