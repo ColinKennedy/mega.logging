@@ -47,10 +47,14 @@
 ---    built-in Lua commands will be used. This is useful if you want to log
 ---    within a libuv thread and don't want to call `vim.schedule()`.
 
----@class aggro.logging._LevelMode Data related to `level` to consider.
----@field highlight string The Neovim highlight group name used to colorize the logs.
----@field level string The associated level for this object.
----@field name string The name of the level, e.g. `"info"`.
+---@class aggro.logging._LevelMode
+---    Data related to `level` to consider.
+---@field highlight string
+---    The Neovim highlight group name used to colorize the logs.
+---@field level string
+---    The associated level for this object.
+---@field name string
+---    The name of the level, e.g. `"info"`.
 
 local _P = {}
 local M = {}
