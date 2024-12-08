@@ -1,0 +1,169 @@
+*mega.logging.txt*      For Neovim >= 0.8.0      Last change: 2024 December 08
+
+==============================================================================
+Table of Contents                             *mega.logging-table-of-contents*
+
+1. A Neovim Plugin Template            |mega.logging-a-neovim-plugin-template|
+2. Features                                            |mega.logging-features|
+3. Using This Template                      |mega.logging-using-this-template|
+4. Installation                                    |mega.logging-installation|
+5. Configuration                                  |mega.logging-configuration|
+6. Tests                                                  |mega.logging-tests|
+  - Initialization                         |mega.logging-tests-initialization|
+  - Running                                       |mega.logging-tests-running|
+7. Tracking Updates                            |mega.logging-tracking-updates|
+8. Other Plugins                                  |mega.logging-other-plugins|
+
+==============================================================================
+1. A Neovim Plugin Template            *mega.logging-a-neovim-plugin-template*
+
+  --------------------------------------------------------------------------------
+            
+  --------- ----------------------------------------------------------------------
+  Build     [unittests] [documentation] [luacheck] [llscheck] [stylua]
+  Status    [urlchecker]
+
+  License   [License-MIT]
+
+  Social    [RSS]
+  --------------------------------------------------------------------------------
+A template repository used to create Neovim plugins.
+
+
+==============================================================================
+2. Features                                            *mega.logging-features*
+
+- Follows nvim-best-practices <https://github.com/nvim-neorocks/nvim-best-practices>
+- Fast start-up (~1 ms)
+- Auto-release to luarocks <https://luarocks.org> & GitHub <https://github.com/ColinKennedy/mega.logging/releases>
+- Automated user documentation (using panvimdoc <https://github.com/kdheepak/panvimdoc>)
+- Automated API documentation (using mini.doc <https://github.com/echasnovski/mini.doc>)
+- Vimtags generation
+- Built-in Vim commands
+- A high quality command mode parser
+- Auto-completes your commands at any cursor position
+- No external dependencies <https://github.com/ColinKennedy/mega.logging/wiki/External-Dependencies-Disclaimer>
+- LuaCATS <https://luals.github.io/wiki/annotations/>annotations and type-hints, everywhere
+- RSS feed support <https://github.com/ColinKennedy/mega.logging/commits/main/doc/news.txt.atom>
+- Built-in logging to stdout / files
+- Unittests use the full power of native busted <https://github.com/lunarmodules/busted>
+- Automated testing matrix supports 6 Neovim/OS combinations
+    - neovim: `[v0.10.0, stable, nightly]`
+    - os: `[ubuntu-latest, macos-latest]`
+- 100% Lua
+- Uses Semantic Versioning <https://semver.org>
+- Integrations
+    - lualine.nvim <https://github.com/nvim-lualine/lualine.nvim>
+    - telescope.nvim <https://github.com/nvim-telescope/telescope.nvim>
+    - `:checkhealth`
+- Github actions for:
+    - StyLua <https://github.com/JohnnyMorganz/StyLua> - Auto-formats Lua code
+    - llscheck <https://github.com/jeffzi/llscheck> - Checks for Lua type mismatches
+    - luacheck <https://github.com/mpeterv/luacheck> - Checks for Lua code issues
+    - luarocks <https://luarocks.org> auto-release (LUAROCKS_API_KEY secret <https://github.com/nvim-neorocks/sample-luarocks-plugin?tab=readme-ov-file#publishing-to-luarocks> configuration required)
+    - GitHub <https://github.com/ColinKennedy/mega.logging/releases> auto-release (PERSONAL_ACCESS_TOKEN secret <https://github.com/nvim-neorocks/sample-luarocks-plugin?tab=readme-ov-file#installing-release-please-recommended> configuration required)
+    - mini.doc <https://github.com/echasnovski/mini.doc> - API documentation auto-generator
+    - panvimdoc <https://github.com/kdheepak/panvimdoc> - User documentation auto-generator
+    - urlchecker <https://github.com/urlstechie/urlchecker-action> - Checks for broken URL links
+    - PR reviews - Reminds users to update `doc/news.txt`
+
+
+==============================================================================
+3. Using This Template                      *mega.logging-using-this-template*
+
+1. Follow the Wiki instructions <https://github.com/ColinKennedy/mega.logging/wiki/Using-This-Template>
+2. Once you’re done, remove this section (the rest of this README.md file should be kept / customized to your needs)
+
+
+==============================================================================
+4. Installation                                    *mega.logging-installation*
+
+- lazy.nvim <https://github.com/folke/lazy.nvim>
+
+>lua
+    {
+        "ColinKennedy/mega.logging",
+        -- TODO: (you) - Make sure your first release matches v1.0.0 so it auto-releases!
+        version = "v1.*",
+    }
+<
+
+
+==============================================================================
+5. Configuration                                  *mega.logging-configuration*
+
+(These are default values)
+
+- lazy.nvim <https://github.com/folke/lazy.nvim>
+
+>lua
+    {
+        "ColinKennedy/mega.logging",
+        config = function()
+            vim.g.mega_logging_configuration = {
+                logging = {
+                    level = "info",
+                    use_console = false,
+                    use_file = false,
+                },
+            }
+        end
+    }
+<
+
+
+==============================================================================
+6. Tests                                                  *mega.logging-tests*
+
+
+INITIALIZATION                             *mega.logging-tests-initialization*
+
+Run this line once before calling any `busted` command
+
+>sh
+    eval $(luarocks path --lua-version 5.1 --bin)
+<
+
+
+RUNNING                                           *mega.logging-tests-running*
+
+Run all tests
+
+>sh
+    luarocks test --test-type busted
+    # Or manually
+    busted --helper spec/minimal_init.lua .
+    # Or with Make
+    make test
+<
+
+Run test based on tags
+
+>sh
+    busted --helper spec/minimal_init.lua . --tags=simple
+<
+
+
+==============================================================================
+7. Tracking Updates                            *mega.logging-tracking-updates*
+
+See doc/news.txt <doc/news.txt> for updates.
+
+You can watch this plugin for changes by adding this URL to your RSS feed:
+
+>
+    https://github.com/ColinKennedy/mega.logging/commits/main/doc/news.txt.atom
+<
+
+
+==============================================================================
+8. Other Plugins                                  *mega.logging-other-plugins*
+
+This template is full of various features. But if your plugin is only meant to
+be a simple plugin and you don’t want the bells and whistles that this
+template provides, consider instead using nvim-plugin-template
+<https://github.com/ellisonleao/nvim-plugin-template>
+
+Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
+
+vim:tw=78:ts=8:noet:ft=help:norl:
