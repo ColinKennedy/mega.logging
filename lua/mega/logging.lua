@@ -60,7 +60,11 @@
 local _P = {}
 local M = {}
 
+local _LOGGER_HIERARCHY_SEPARATOR = "."
 local _LEVELS = { trace = 10, debug = 20, info = 30, warn = 40, error = 50, fatal = 60 }
+
+---@type table<string, mega.logging.SparseLoggerOptions>
+local _OPTIONS = {}
 
 --- Suggest a default level for all loggers.
 ---
@@ -137,6 +141,26 @@ function _P.round(value, increment)
     value = value / increment
 
     return (value > 0 and math.floor(value + 0.5) or math.ceil(value - 0.5)) * increment
+end
+
+--- Add `data` to this logger instance's description.
+---
+---@param options mega.logging.SparseLoggerOptions The logger to create.
+---@private
+---
+function M.Logger:_apply_parent_configuration(options)
+    local full_options = vim.tbl_deep_extend("force", options, self._sparse_options)
+
+    self.level = full_options.level
+    self.name = full_options.name
+    self.use_file = full_options.use_file
+    self.use_highlights = full_options.use_highlights
+    self.use_neovim_commands = full_options.use_neovim_commands
+
+    self._float_precision = full_options.float_precision
+    self._use_console = full_options.use_console
+    ---@type string?
+    self._output_path = full_options.output_path
 end
 
 --- Format a template string and log it according to `level` and `mode`.
@@ -357,23 +381,28 @@ end
 
 --- Create a new logger according to `options`.
 ---
----@param options mega.logging.LoggerOptions The logger to create.
+---@param options mega.logging.SparseLoggerOptions The logger to create.
 ---@return mega.logging.Logger # The created instance.
 ---
 function M.Logger.new(options)
     ---@class mega.logging.Logger
     local self = setmetatable({}, M.Logger)
 
-    self.level = options.level
-    self.name = options.name
-    self.use_file = options.use_file
-    self.use_highlights = options.use_highlights
-    self.use_neovim_commands = options.use_neovim_commands
+    self._sparse_options = options
 
-    self._float_precision = options.float_precision
-    self._use_console = options.use_console
+    local full_options = vim.tbl_deep_extend("force", M._DEFAULTS, options or {})
+    ---@cast full_options mega.logging.LoggerOptions
+
+    self.level = full_options.level
+    self.name = full_options.name
+    self.use_file = full_options.use_file
+    self.use_highlights = full_options.use_highlights
+    self.use_neovim_commands = full_options.use_neovim_commands
+
+    self._float_precision = full_options.float_precision
+    self._use_console = full_options.use_console
     ---@type string?
-    self._output_path = options.output_path
+    self._output_path = full_options.output_path
 
     if not self._output_path and self.use_neovim_commands then
         self._output_path = vim.fs.joinpath(vim.api.nvim_call_function("stdpath", { "data" }), "default.log")
@@ -387,9 +416,50 @@ function M.Logger:get_log_path()
     return self._output_path
 end
 
+--- Gather all data above `logger`.
+---
+--- Important:
+---     This function is *exclusive* - it does not include any sparse options
+---     of `logger` itself, just its parents.
+---
+---@param logger mega.logging.Logger The logger to start searching from.
+---@return mega.logging.SparseLoggerOptions # All found options, if any.
+---
+function _P.get_parent_configuration(logger)
+    local parts = vim.fn.split(logger.name, _LOGGER_HIERARCHY_SEPARATOR)
+    ---@type mega.logging.SparseLoggerOptions
+    local output = {}
+
+    for index = 1, #parts do
+        ---@type string[]
+        local namespace = {}
+
+        for inner_index = 1, index do
+            table.insert(namespace, parts[inner_index])
+        end
+
+        output = vim.tbl_deep_extend("force", output, _OPTIONS[vim.fn.join(namespace, _LOGGER_HIERARCHY_SEPARATOR)])
+    end
+
+    return output
+end
+
+--- Find and re-apply all configurations for all loggers starting with `name`.
+---
+---@param name string A starting point. e.g. `"foo.bar"`.
+---
+function _P.recompute_loggers(name)
+    for _, logger in ipairs(M._LOGGERS) do
+        if not name or vim.startswith(logger.name, name) then
+            local data = _P.get_parent_configuration(logger)
+            logger:_apply_parent_configuration(data)
+        end
+    end
+end
+
 --- Find an existing logger with `name` or create one if it does not exist already.
 ---
----@param options mega.logging.LoggerOptions | mega.logging.SparseLoggerOptions | string The logger to create.
+---@param options mega.logging.SparseLoggerOptions | string The logger to create.
 ---@return mega.logging.Logger # The created instance.
 ---
 function M.get_logger(options)
@@ -397,9 +467,6 @@ function M.get_logger(options)
         ---@diagnostic disable-next-line: missing-fields
         options = { name = options }
     end
-
-    options = vim.tbl_deep_extend("force", M._DEFAULTS, options or {})
-    ---@cast options mega.logging.LoggerOptions
 
     local name = options.name
 
@@ -414,6 +481,20 @@ function M.get_logger(options)
     M._LOGGERS[name] = M.Logger.new(options)
 
     return M._LOGGERS[name]
+end
+
+--- Apply `options` to `name` and all child loggers.
+---
+--- If `name` is `"foo.bar"` then `"foo.bar"` will be edited but also so will
+--- its children `"foo.bar.fizz"`, `"foo.bar.fizz.buzz"`, `"foo.bar.another"`, etc.
+---
+---@param name string The logger namespace to start modifying from.
+---@param options mega.logging.SparseLoggerOptions The data to apply.
+---
+function M.set_configuration(name, options)
+    _OPTIONS[name] = options
+
+    _P.recompute_loggers(name)
 end
 
 return M
