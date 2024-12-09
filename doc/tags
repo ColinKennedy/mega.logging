@@ -1,3 +1,7 @@
+_OPTIONS	mega_logging_api.txt	/*_OPTIONS*
+_P.get_parent_configuration()	mega_logging_api.txt	/*_P.get_parent_configuration()*
+_P.recompute_loggers()	mega_logging_api.txt	/*_P.recompute_loggers()*
+exclusive	mega_logging_api.txt	/*exclusive*
 mega.logging-aneovim-logger	mega.logging.txt	/*mega.logging-aneovim-logger*
 mega.logging-installation	mega.logging.txt	/*mega.logging-installation*
 mega.logging-new-breaking	news.txt	/*mega.logging-new-breaking*
@@ -24,4 +28,5 @@ mega.logging.Logger:warning()	mega_logging_api.txt	/*mega.logging.Logger:warning
 mega.logging.LoggerOptions	mega_logging_api.txt	/*mega.logging.LoggerOptions*
 mega.logging.SparseLoggerOptions	mega_logging_api.txt	/*mega.logging.SparseLoggerOptions*
 mega.logging.get_logger()	mega_logging_api.txt	/*mega.logging.get_logger()*
+mega.logging.set_configuration()	mega_logging_api.txt	/*mega.logging.set_configuration()*
 mega.logging.txt	mega.logging.txt	/*mega.logging.txt*

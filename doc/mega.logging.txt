@@ -24,8 +24,8 @@ Pleasecheck back later.
   --------------------------------------------------------------------------------
             
   --------- ----------------------------------------------------------------------
-  Build     [unittests] [documentation] [luacheck] [llscheck] [stylua]
-  Status    [urlchecker]
+  Build     [documentation] [luacheck] [llscheck] [stylua] [urlchecker]
+  Status    
 
   License   [License-MIT]
 
