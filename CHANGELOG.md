@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ColinKennedy/mega.logging/compare/v1.0.0...v1.1.0) (2024-12-09)
+
+
+### Features
+
+* **config:** allow multi-logger editing at once ([912d25e](https://github.com/ColinKennedy/mega.logging/commit/912d25e1d7eb8e5f2bc52f422f9a49c6e60b7a9f))
+
 ## 1.0.0 (2024-12-08)
 
 
