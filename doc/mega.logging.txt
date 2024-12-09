@@ -1,21 +1,25 @@
-*mega.logging.txt*      For Neovim >= 0.8.0      Last change: 2024 December 08
+*mega.logging.txt*      For Neovim >= 0.8.0      Last change: 2024 December 09
 
 ==============================================================================
 Table of Contents                             *mega.logging-table-of-contents*
 
-1. A Neovim Plugin Template            |mega.logging-a-neovim-plugin-template|
-2. Features                                            |mega.logging-features|
-3. Using This Template                      |mega.logging-using-this-template|
-4. Installation                                    |mega.logging-installation|
-5. Configuration                                  |mega.logging-configuration|
-6. Tests                                                  |mega.logging-tests|
+1. Under Construction                       |mega.logging-under-construction-|
+2. ANeovim Logger                                |mega.logging-aneovim-logger|
+3. Installation                                    |mega.logging-installation|
+4. Tests                                                  |mega.logging-tests|
   - Initialization                         |mega.logging-tests-initialization|
   - Running                                       |mega.logging-tests-running|
-7. Tracking Updates                            |mega.logging-tracking-updates|
-8. Other Plugins                                  |mega.logging-other-plugins|
+5. Tracking Updates                            |mega.logging-tracking-updates|
+6. Other Plugins                                  |mega.logging-other-plugins|
 
 ==============================================================================
-1. A Neovim Plugin Template            *mega.logging-a-neovim-plugin-template*
+1. Under Construction                       *mega.logging-under-construction-*
+
+Pleasecheck back later.
+
+
+==============================================================================
+2. ANeovim Logger                                *mega.logging-aneovim-logger*
 
   --------------------------------------------------------------------------------
             
@@ -27,93 +31,22 @@ Table of Contents                             *mega.logging-table-of-contents*
 
   Social    [RSS]
   --------------------------------------------------------------------------------
-A template repository used to create Neovim plugins.
-
 
 ==============================================================================
-2. Features                                            *mega.logging-features*
-
-- Follows nvim-best-practices <https://github.com/nvim-neorocks/nvim-best-practices>
-- Fast start-up (~1 ms)
-- Auto-release to luarocks <https://luarocks.org> & GitHub <https://github.com/ColinKennedy/mega.logging/releases>
-- Automated user documentation (using panvimdoc <https://github.com/kdheepak/panvimdoc>)
-- Automated API documentation (using mini.doc <https://github.com/echasnovski/mini.doc>)
-- Vimtags generation
-- Built-in Vim commands
-- A high quality command mode parser
-- Auto-completes your commands at any cursor position
-- No external dependencies <https://github.com/ColinKennedy/mega.logging/wiki/External-Dependencies-Disclaimer>
-- LuaCATS <https://luals.github.io/wiki/annotations/>annotations and type-hints, everywhere
-- RSS feed support <https://github.com/ColinKennedy/mega.logging/commits/main/doc/news.txt.atom>
-- Built-in logging to stdout / files
-- Unittests use the full power of native busted <https://github.com/lunarmodules/busted>
-- Automated testing matrix supports 6 Neovim/OS combinations
-    - neovim: `[v0.10.0, stable, nightly]`
-    - os: `[ubuntu-latest, macos-latest]`
-- 100% Lua
-- Uses Semantic Versioning <https://semver.org>
-- Integrations
-    - lualine.nvim <https://github.com/nvim-lualine/lualine.nvim>
-    - telescope.nvim <https://github.com/nvim-telescope/telescope.nvim>
-    - `:checkhealth`
-- Github actions for:
-    - StyLua <https://github.com/JohnnyMorganz/StyLua> - Auto-formats Lua code
-    - llscheck <https://github.com/jeffzi/llscheck> - Checks for Lua type mismatches
-    - luacheck <https://github.com/mpeterv/luacheck> - Checks for Lua code issues
-    - luarocks <https://luarocks.org> auto-release (LUAROCKS_API_KEY secret <https://github.com/nvim-neorocks/sample-luarocks-plugin?tab=readme-ov-file#publishing-to-luarocks> configuration required)
-    - GitHub <https://github.com/ColinKennedy/mega.logging/releases> auto-release (PERSONAL_ACCESS_TOKEN secret <https://github.com/nvim-neorocks/sample-luarocks-plugin?tab=readme-ov-file#installing-release-please-recommended> configuration required)
-    - mini.doc <https://github.com/echasnovski/mini.doc> - API documentation auto-generator
-    - panvimdoc <https://github.com/kdheepak/panvimdoc> - User documentation auto-generator
-    - urlchecker <https://github.com/urlstechie/urlchecker-action> - Checks for broken URL links
-    - PR reviews - Reminds users to update `doc/news.txt`
-
-
-==============================================================================
-3. Using This Template                      *mega.logging-using-this-template*
-
-1. Follow the Wiki instructions <https://github.com/ColinKennedy/mega.logging/wiki/Using-This-Template>
-2. Once you’re done, remove this section (the rest of this README.md file should be kept / customized to your needs)
-
-
-==============================================================================
-4. Installation                                    *mega.logging-installation*
+3. Installation                                    *mega.logging-installation*
 
 - lazy.nvim <https://github.com/folke/lazy.nvim>
 
 >lua
     {
         "ColinKennedy/mega.logging",
-        -- TODO: (you) - Make sure your first release matches v1.0.0 so it auto-releases!
         version = "v1.*",
     }
 <
 
 
 ==============================================================================
-5. Configuration                                  *mega.logging-configuration*
-
-(These are default values)
-
-- lazy.nvim <https://github.com/folke/lazy.nvim>
-
->lua
-    {
-        "ColinKennedy/mega.logging",
-        config = function()
-            vim.g.mega_logging_configuration = {
-                logging = {
-                    level = "info",
-                    use_console = false,
-                    use_file = false,
-                },
-            }
-        end
-    }
-<
-
-
-==============================================================================
-6. Tests                                                  *mega.logging-tests*
+4. Tests                                                  *mega.logging-tests*
 
 
 INITIALIZATION                             *mega.logging-tests-initialization*
@@ -145,7 +78,7 @@ Run test based on tags
 
 
 ==============================================================================
-7. Tracking Updates                            *mega.logging-tracking-updates*
+5. Tracking Updates                            *mega.logging-tracking-updates*
 
 See doc/news.txt <doc/news.txt> for updates.
 
@@ -157,7 +90,7 @@ You can watch this plugin for changes by adding this URL to your RSS feed:
 
 
 ==============================================================================
-8. Other Plugins                                  *mega.logging-other-plugins*
+6. Other Plugins                                  *mega.logging-other-plugins*
 
 This template is full of various features. But if your plugin is only meant to
 be a simple plugin and you don’t want the bells and whistles that this

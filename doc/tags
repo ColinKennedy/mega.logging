@@ -1,6 +1,4 @@
-mega.logging-a-neovim-plugin-template	mega.logging.txt	/*mega.logging-a-neovim-plugin-template*
-mega.logging-configuration	mega.logging.txt	/*mega.logging-configuration*
-mega.logging-features	mega.logging.txt	/*mega.logging-features*
+mega.logging-aneovim-logger	mega.logging.txt	/*mega.logging-aneovim-logger*
 mega.logging-installation	mega.logging.txt	/*mega.logging-installation*
 mega.logging-new-breaking	news.txt	/*mega.logging-new-breaking*
 mega.logging-new-features	news.txt	/*mega.logging-new-features*
@@ -10,7 +8,7 @@ mega.logging-tests	mega.logging.txt	/*mega.logging-tests*
 mega.logging-tests-initialization	mega.logging.txt	/*mega.logging-tests-initialization*
 mega.logging-tests-running	mega.logging.txt	/*mega.logging-tests-running*
 mega.logging-tracking-updates	mega.logging.txt	/*mega.logging-tracking-updates*
-mega.logging-using-this-template	mega.logging.txt	/*mega.logging-using-this-template*
+mega.logging-under-construction-	mega.logging.txt	/*mega.logging-under-construction-*
 mega.logging.Logger.new()	mega_logging_api.txt	/*mega.logging.Logger.new()*
 mega.logging.Logger:debug()	mega_logging_api.txt	/*mega.logging.Logger:debug()*
 mega.logging.Logger:error()	mega_logging_api.txt	/*mega.logging.Logger:error()*
