@@ -149,10 +149,10 @@ end
 ---@private
 ---
 function M.Logger:_apply_parent_configuration(options)
+    self._sparse_options = _OPTIONS[self.name] or self._sparse_options
     local full_options = vim.tbl_deep_extend("force", options, self._sparse_options)
 
     self.level = full_options.level
-    self.name = full_options.name
     self.use_file = full_options.use_file
     self.use_highlights = full_options.use_highlights
     self.use_neovim_commands = full_options.use_neovim_commands
@@ -161,6 +161,10 @@ function M.Logger:_apply_parent_configuration(options)
     self._use_console = full_options.use_console
     ---@type string?
     self._output_path = full_options.output_path
+
+    if not self._output_path and self.use_neovim_commands then
+        self._output_path = vim.fs.joinpath(vim.api.nvim_call_function("stdpath", { "data" }), "default.log")
+    end
 end
 
 --- Format a template string and log it according to `level` and `mode`.
@@ -426,7 +430,7 @@ end
 ---@return mega.logging.SparseLoggerOptions # All found options, if any.
 ---
 function _P.get_parent_configuration(logger)
-    local parts = vim.fn.split(logger.name, _LOGGER_HIERARCHY_SEPARATOR)
+    local parts = vim.fn.split(logger.name, "\\.")
     ---@type mega.logging.SparseLoggerOptions
     local output = {}
 
@@ -438,7 +442,8 @@ function _P.get_parent_configuration(logger)
             table.insert(namespace, parts[inner_index])
         end
 
-        output = vim.tbl_deep_extend("force", output, _OPTIONS[vim.fn.join(namespace, _LOGGER_HIERARCHY_SEPARATOR)])
+        output =
+            vim.tbl_deep_extend("force", output, _OPTIONS[vim.fn.join(namespace, _LOGGER_HIERARCHY_SEPARATOR)] or {})
     end
 
     return output
@@ -449,9 +454,10 @@ end
 ---@param name string A starting point. e.g. `"foo.bar"`.
 ---
 function _P.recompute_loggers(name)
-    for _, logger in ipairs(M._LOGGERS) do
+    for _, logger in pairs(M._LOGGERS) do
         if not name or vim.startswith(logger.name, name) then
             local data = _P.get_parent_configuration(logger)
+            ---@diagnostic disable-next-line undefined-field
             logger:_apply_parent_configuration(data)
         end
     end
