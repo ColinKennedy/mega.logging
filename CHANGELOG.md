@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/ColinKennedy/mega.logging/compare/v1.1.0...v1.1.1) (2024-12-09)
+
+
+### Bug Fixes
+
+* **setter:** set_configuration works again ([67bcec5](https://github.com/ColinKennedy/mega.logging/commit/67bcec5173c71498307550f5d79f58c68b158556))
+
 ## [1.1.0](https://github.com/ColinKennedy/mega.logging/compare/v1.0.0...v1.1.0) (2024-12-09)
 
 
