@@ -1,4 +1,8 @@
-# A Neovim Plugin Template
+# 🚧 Under Construction 🚧
+
+Please check back later. 🔧✨
+
+# A Neovim Logger
 
 | <!-- -->     | <!-- -->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -6,78 +10,13 @@
 | License      | [![License-MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://github.com/ColinKennedy/mega.logging/blob/main/LICENSE)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Social       | [![RSS](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white)](https://github.com/ColinKennedy/mega.logging/commits/main/doc/news.txt.atom)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-A template repository used to create Neovim plugins.
-
-
-# Features
-- Follows [nvim-best-practices](https://github.com/nvim-neorocks/nvim-best-practices)
-- Fast start-up (~1 ms)
-- Auto-release to [luarocks](https://luarocks.org) & [GitHub](https://github.com/ColinKennedy/mega.logging/releases)
-- Automated user documentation (using [panvimdoc](https://github.com/kdheepak/panvimdoc))
-- Automated API documentation (using [mini.doc](https://github.com/echasnovski/mini.doc))
-- Vimtags generation
-- Built-in Vim commands
-- A high quality command mode parser
-- Auto-completes your commands at any cursor position
-- No external dependencies[*](https://github.com/ColinKennedy/mega.logging/wiki/External-Dependencies-Disclaimer)
-- [LuaCATS](https://luals.github.io/wiki/annotations/) annotations and type-hints, everywhere
-- [RSS feed support](https://github.com/ColinKennedy/mega.logging/commits/main/doc/news.txt.atom)
-- Built-in logging to stdout / files
-- Unittests use the full power of native [busted](https://github.com/lunarmodules/busted)
-- Automated testing matrix supports 6 Neovim/OS combinations
-    - neovim: `[v0.10.0, stable, nightly]`
-    - os: `[ubuntu-latest, macos-latest]`
-- 100% Lua
-- Uses [Semantic Versioning](https://semver.org)
-- Integrations
-    - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-    - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-    - `:checkhealth`
-- Github actions for:
-    - [StyLua](https://github.com/JohnnyMorganz/StyLua) - Auto-formats Lua code
-    - [llscheck](https://github.com/jeffzi/llscheck) - Checks for Lua type mismatches
-    - [luacheck](https://github.com/mpeterv/luacheck) - Checks for Lua code issues
-    - [luarocks](https://luarocks.org) auto-release ([LUAROCKS_API_KEY secret](https://github.com/nvim-neorocks/sample-luarocks-plugin?tab=readme-ov-file#publishing-to-luarocks) configuration required)
-    - [GitHub](https://github.com/ColinKennedy/mega.logging/releases) auto-release ([PERSONAL_ACCESS_TOKEN secret](https://github.com/nvim-neorocks/sample-luarocks-plugin?tab=readme-ov-file#installing-release-please-recommended) configuration required)
-    - [mini.doc](https://github.com/echasnovski/mini.doc) - API documentation auto-generator
-    - [panvimdoc](https://github.com/kdheepak/panvimdoc) - User documentation auto-generator
-    - [urlchecker](https://github.com/urlstechie/urlchecker-action) - Checks for broken URL links
-    - PR reviews - Reminds users to update `doc/news.txt`
-
-
-# Using This Template
-1. Follow the [Wiki instructions](https://github.com/ColinKennedy/mega.logging/wiki/Using-This-Template)
-2. Once you're done, remove this section (the rest of this README.md file should be kept / customized to your needs)
-
 
 # Installation
-<!-- TODO: (you) - Adjust and add your dependencies as needed here -->
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
 {
     "ColinKennedy/mega.logging",
-    -- TODO: (you) - Make sure your first release matches v1.0.0 so it auto-releases!
     version = "v1.*",
-}
-```
-
-
-# Configuration
-(These are default values)
-
-- [lazy.nvim](https://github.com/folke/lazy.nvim)
-```lua
-{
-    "ColinKennedy/mega.logging",
-    config = function()
-        vim.g.mega_logging_configuration = {
-            logging = {
-                level = "info",
-                use_console = false,
-                use_file = false,
-            },
-        }
-    end
 }
 ```
 
