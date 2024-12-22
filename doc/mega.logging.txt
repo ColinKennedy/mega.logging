@@ -14,6 +14,8 @@ Table of Contents                             *mega.logging-table-of-contents*
 ==============================================================================
 1. A Neovim Logger                              *mega.logging-a-neovim-logger*
 
+Logging Neovim messages with Neovim or to-disk.
+
   --------------------------------------------------------------------------------
             
   --------- ----------------------------------------------------------------------
