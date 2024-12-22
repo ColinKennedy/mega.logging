@@ -34,12 +34,6 @@ jobs:
         subfolder: scripts
         file_types: .json,.lua,.md,.txt,.vim,.yml
 
-    - name: urlcheck - spec directory
-      uses: urlstechie/urlchecker-action@master
-      with:
-        subfolder: spec
-        file_types: .json,.lua,.md,.txt,.vim,.yml
-
     - name: urlcheck - CHANGELOG.md + README.md
       uses: urlstechie/urlchecker-action@master
       with:
