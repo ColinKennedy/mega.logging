@@ -1,25 +1,18 @@
-*mega.logging.txt*      For Neovim >= 0.8.0      Last change: 2024 December 09
+*mega.logging.txt*      For Neovim >= 0.8.0      Last change: 2024 December 22
 
 ==============================================================================
 Table of Contents                             *mega.logging-table-of-contents*
 
-1. Under Construction                       |mega.logging-under-construction-|
-2. ANeovim Logger                                |mega.logging-aneovim-logger|
-3. Installation                                    |mega.logging-installation|
-4. Tests                                                  |mega.logging-tests|
+1. A Neovim Logger                              |mega.logging-a-neovim-logger|
+2. Installation                                    |mega.logging-installation|
+3. Tests                                                  |mega.logging-tests|
   - Initialization                         |mega.logging-tests-initialization|
   - Running                                       |mega.logging-tests-running|
-5. Tracking Updates                            |mega.logging-tracking-updates|
-6. Other Plugins                                  |mega.logging-other-plugins|
+4. Tracking Updates                            |mega.logging-tracking-updates|
+5. Other Plugins                                  |mega.logging-other-plugins|
 
 ==============================================================================
-1. Under Construction                       *mega.logging-under-construction-*
-
-Pleasecheck back later.
-
-
-==============================================================================
-2. ANeovim Logger                                *mega.logging-aneovim-logger*
+1. A Neovim Logger                              *mega.logging-a-neovim-logger*
 
   --------------------------------------------------------------------------------
             
@@ -33,7 +26,7 @@ Pleasecheck back later.
   --------------------------------------------------------------------------------
 
 ==============================================================================
-3. Installation                                    *mega.logging-installation*
+2. Installation                                    *mega.logging-installation*
 
 - lazy.nvim <https://github.com/folke/lazy.nvim>
 
@@ -46,7 +39,7 @@ Pleasecheck back later.
 
 
 ==============================================================================
-4. Tests                                                  *mega.logging-tests*
+3. Tests                                                  *mega.logging-tests*
 
 
 INITIALIZATION                             *mega.logging-tests-initialization*
@@ -78,7 +71,7 @@ Run test based on tags
 
 
 ==============================================================================
-5. Tracking Updates                            *mega.logging-tracking-updates*
+4. Tracking Updates                            *mega.logging-tracking-updates*
 
 See doc/news.txt <doc/news.txt> for updates.
 
@@ -90,7 +83,7 @@ You can watch this plugin for changes by adding this URL to your RSS feed:
 
 
 ==============================================================================
-6. Other Plugins                                  *mega.logging-other-plugins*
+5. Other Plugins                                  *mega.logging-other-plugins*
 
 This template is full of various features. But if your plugin is only meant to
 be a simple plugin and you don’t want the bells and whistles that this
