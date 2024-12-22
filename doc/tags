@@ -2,7 +2,7 @@ _OPTIONS	mega_logging_api.txt	/*_OPTIONS*
 _P.get_parent_configuration()	mega_logging_api.txt	/*_P.get_parent_configuration()*
 _P.recompute_loggers()	mega_logging_api.txt	/*_P.recompute_loggers()*
 exclusive	mega_logging_api.txt	/*exclusive*
-mega.logging-aneovim-logger	mega.logging.txt	/*mega.logging-aneovim-logger*
+mega.logging-a-neovim-logger	mega.logging.txt	/*mega.logging-a-neovim-logger*
 mega.logging-installation	mega.logging.txt	/*mega.logging-installation*
 mega.logging-new-breaking	news.txt	/*mega.logging-new-breaking*
 mega.logging-new-features	news.txt	/*mega.logging-new-features*
@@ -12,7 +12,6 @@ mega.logging-tests	mega.logging.txt	/*mega.logging-tests*
 mega.logging-tests-initialization	mega.logging.txt	/*mega.logging-tests-initialization*
 mega.logging-tests-running	mega.logging.txt	/*mega.logging-tests-running*
 mega.logging-tracking-updates	mega.logging.txt	/*mega.logging-tracking-updates*
-mega.logging-under-construction-	mega.logging.txt	/*mega.logging-under-construction-*
 mega.logging.Logger.new()	mega_logging_api.txt	/*mega.logging.Logger.new()*
 mega.logging.Logger:debug()	mega_logging_api.txt	/*mega.logging.Logger:debug()*
 mega.logging.Logger:error()	mega_logging_api.txt	/*mega.logging.Logger:error()*
