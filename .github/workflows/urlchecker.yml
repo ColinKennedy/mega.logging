@@ -1,5 +1,3 @@
-# TODO: (you) Make sure to update your file_types below to whatever makes sense for you.
-
 name: URLChecker
 
 on:
@@ -28,12 +26,6 @@ jobs:
       uses: urlstechie/urlchecker-action@master
       with:
         subfolder: lua
-        file_types: .json,.lua,.md,.txt,.vim,.yml
-
-    - name: urlcheck - plugin directory
-      uses: urlstechie/urlchecker-action@master
-      with:
-        subfolder: plugin
         file_types: .json,.lua,.md,.txt,.vim,.yml
 
     - name: urlcheck - scripts directory
