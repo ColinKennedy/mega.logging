@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/ColinKennedy/mega.logging/compare/v1.1.2...v1.1.3) (2025-01-09)
+
+
+### Bug Fixes
+
+* **rockspec:** added a template.rockspec ([577e37a](https://github.com/ColinKennedy/mega.logging/commit/577e37aa5135c9ef308d969d6bf82fdd03e64499))
+
 ## [1.1.2](https://github.com/ColinKennedy/mega.logging/compare/v1.1.1...v1.1.2) (2025-01-09)
 
 
