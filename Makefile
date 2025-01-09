@@ -22,4 +22,4 @@ luacheck:
 	luacheck lua scripts
 
 stylua:
-	stylua lua scripts
+	stylua lua scripts template.rockspec
