@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2](https://github.com/ColinKennedy/mega.logging/compare/v1.1.1...v1.1.2) (2025-01-09)
+
+
+### Bug Fixes
+
+* **ci:** removed unneeded urlchecker directory ([8cbbf76](https://github.com/ColinKennedy/mega.logging/commit/8cbbf7665bf3be62b0848d5f7903a77e73916b55))
+* **rockspec:** added a template.rockspec ([577e37a](https://github.com/ColinKennedy/mega.logging/commit/577e37aa5135c9ef308d969d6bf82fdd03e64499))
+
 ## [1.1.1](https://github.com/ColinKennedy/mega.logging/compare/v1.1.0...v1.1.1) (2024-12-09)
 
 
