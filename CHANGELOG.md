@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/ColinKennedy/mega.logging/compare/v1.1.3...v1.1.4) (2025-01-11)
+
+
+### Bug Fixes
+
+* **annotations:** added missing [@class](https://github.com/class) ([76b9856](https://github.com/ColinKennedy/mega.logging/commit/76b9856881a526f98f25c704b2c08b0fc09b98b4))
+
 ## [1.1.3](https://github.com/ColinKennedy/mega.logging/compare/v1.1.2...v1.1.3) (2025-01-09)
 
 
