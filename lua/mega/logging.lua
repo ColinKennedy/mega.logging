@@ -117,6 +117,7 @@ local _ROOT_NAME = "__ROOT__"
 ---@type table<string, mega.logging.Logger>
 M._LOGGERS = {}
 
+---@class mega.logging.Logger
 M.Logger = {
     __tostring = function(logger)
         return string.format("mega.logging.Logger({names=%s})", vim.inspect(logger.name))
