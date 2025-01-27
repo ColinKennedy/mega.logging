@@ -3,12 +3,14 @@
 ---@module 'mega.logging'
 ---
 
+---@alias _Level "trace" | "debug" | "info" | "warn" | "error" | "fatal"
+
 ---@class mega.logging.SparseLoggerOptions
 ---    All of the customizations a person can make to a logger instance.
 ---@field float_precision number?
 ---    A positive value (max of 1) to indicate the rounding precision. e.g.
 ---    0.01 rounds to every hundredths.
----@field level ("trace" | "debug" | "info" | "warn" | "error" | "fatal")?
+---@field level _Level?
 ---    The minimum severity needed for this logger instance to output a log.
 ---@field name string?
 ---    An identifier for this logger.
@@ -30,7 +32,7 @@
 ---@field float_precision number
 ---    A positive value (max of 1) to indicate the rounding precision. e.g.
 ---    0.01 rounds to every hundredths.
----@field level "trace" | "debug" | "info" | "warn" | "error" | "fatal"
+---@field level _Level
 ---    The minimum severity needed for this logger instance to output a log.
 ---@field name string
 ---    An identifier for this logger.
@@ -64,6 +66,7 @@ local _LOGGER_HIERARCHY_SEPARATOR = "."
 local _LEVELS = { trace = 10, debug = 20, info = 30, warn = 40, error = 50, fatal = 60 }
 
 ---@type table<string, mega.logging.SparseLoggerOptions>
+---@private
 local _OPTIONS = {}
 
 --- Suggest a default level for all loggers.
@@ -429,6 +432,7 @@ end
 ---
 ---@param logger mega.logging.Logger The logger to start searching from.
 ---@return mega.logging.SparseLoggerOptions # All found options, if any.
+---@private
 ---
 function _P.get_parent_configuration(logger)
     local parts = vim.fn.split(logger.name, "\\.")
@@ -453,6 +457,7 @@ end
 --- Find and re-apply all configurations for all loggers starting with `name`.
 ---
 ---@param name string A starting point. e.g. `"foo.bar"`.
+---@private
 ---
 function _P.recompute_loggers(name)
     for _, logger in pairs(M._LOGGERS) do

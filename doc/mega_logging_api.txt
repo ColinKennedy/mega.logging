@@ -10,7 +10,7 @@ Fields ~
     {float_precision} `(number?)`
        A positive value (max of 1) to indicate the rounding precision. e.g.
        0.01 rounds to every hundredths.
-    {level} ("trace" | "debug" | "info" | "warn" | "error" | "fatal")?
+    {level} "trace" | "debug" | "info" | "warn" | "error" | "fatal"?
        The minimum severity needed for this logger instance to output a log.
     {name} `(string?)`
        An identifier for this logger.
@@ -53,12 +53,9 @@ Fields ~
        within a libuv thread and don't want to call `vim.schedule()`.
 
 ------------------------------------------------------------------------------
-                                                                      *_OPTIONS*
+                                                           *mega.logging.Logger*
 
-`_OPTIONS`
-
-Type ~
-`(table<string, mega.logging.SparseLoggerOptions>)`
+`mega.logging.Logger`
 
 ------------------------------------------------------------------------------
                                                            *mega.logging.Logger*
@@ -186,33 +183,6 @@ Return ~
 
 Return ~
     `(string)` `(optional)` The path on-disk where logs will be written to.
-
-------------------------------------------------------------------------------
-                                                 *_P.get_parent_configuration()*
-
-`_P.get_parent_configuration`({logger})
-
-Gather all data above `logger`.
-
-Important:
-    This function is *exclusive* - it does not include any sparse options
-    of `logger` itself, just its parents.
-
-Parameters ~
-    {logger} mega.logging.Logger The logger to start searching from.
-
-Return ~
-    mega.logging.SparseLoggerOptions All found options, if `(any.)`
-
-------------------------------------------------------------------------------
-                                                        *_P.recompute_loggers()*
-
-`_P.recompute_loggers`({name})
-
-Find and re-apply all configurations for all loggers starting with `name`.
-
-Parameters ~
-    {name} `(string)` A starting point. e.g. `"foo.bar"`.
 
 ------------------------------------------------------------------------------
                                                      *mega.logging.get_logger()*
