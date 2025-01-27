@@ -58,11 +58,6 @@ Fields ~
 `mega.logging.Logger`
 
 ------------------------------------------------------------------------------
-                                                           *mega.logging.Logger*
-
-`mega.logging.Logger`
-
-------------------------------------------------------------------------------
                                                    *mega.logging.Logger:debug()*
 
 `mega.logging.Logger:debug`({...})
