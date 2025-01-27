@@ -1,4 +1,4 @@
-# A Neovim Logger
+# 📝 A Neovim Logger
 
 Logging Neovim messages with Neovim or to-disk.
 
@@ -9,7 +9,7 @@ Logging Neovim messages with Neovim or to-disk.
 | Social       | [![RSS](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white)](https://github.com/ColinKennedy/mega.logging/commits/main/doc/news.txt.atom)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 
-# Installation
+# 📋 Installation
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
 {
@@ -19,7 +19,7 @@ Logging Neovim messages with Neovim or to-disk.
 ```
 
 
-# Tests
+# ✅ Tests
 ## Initialization
 Run this line once before calling any `busted` command
 
@@ -43,16 +43,10 @@ Run test based on tags
 busted . --tags=simple
 ```
 
-# Tracking Updates
+# 👂 Tracking Updates
 See [doc/news.txt](doc/news.txt) for updates.
 
 You can watch this plugin for changes by adding this URL to your RSS feed:
 ```
 https://github.com/ColinKennedy/mega.logging/commits/main/doc/news.txt.atom
 ```
-
-# Other Plugins
-This template is full of various features. But if your plugin is only meant to
-be a simple plugin and you don't want the bells and whistles that this template
-provides, consider instead using
-[nvim-plugin-template](https://github.com/ellisonleao/nvim-plugin-template)
