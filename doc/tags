@@ -1,7 +1,3 @@
-_OPTIONS	mega_logging_api.txt	/*_OPTIONS*
-_P.get_parent_configuration()	mega_logging_api.txt	/*_P.get_parent_configuration()*
-_P.recompute_loggers()	mega_logging_api.txt	/*_P.recompute_loggers()*
-exclusive	mega_logging_api.txt	/*exclusive*
 mega.logging-a-neovim-logger	mega.logging.txt	/*mega.logging-a-neovim-logger*
 mega.logging-installation	mega.logging.txt	/*mega.logging-installation*
 mega.logging-new-breaking	news.txt	/*mega.logging-new-breaking*
