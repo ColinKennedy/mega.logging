@@ -24,7 +24,7 @@ luacheck:
 	luacheck lua scripts
 
 stylua:
-	stylua lua scripts template.rockspec
+	stylua lua scripts
 
 test: clone_git_dependencies
 	busted .

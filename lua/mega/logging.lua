@@ -63,7 +63,7 @@ local _P = {}
 local M = {}
 
 local _LOGGER_HIERARCHY_SEPARATOR = "."
-local _LEVELS = { trace = 10, debug = 20, info = 30, warn = 40, error = 50, fatal = 60 }
+local _LEVELS = { trace = 10, debug = 20, info = 30, warning = 40, error = 50, fatal = 60 }
 
 ---@type table<string, mega.logging.SparseLoggerOptions>
 ---@private
@@ -327,6 +327,14 @@ function M.Logger:fatal(...)
     end, ...)
 end
 
+--- Send a "this is rarely shown, even when debugging" message to the logger.
+---
+---@param ... any Any arguments.
+---
+function M.Logger:fmt_trace(...)
+    self:_format_and_log_at_level(_LEVELS.trace, _MODES.trace, ...)
+end
+
 --- Send a message that is intended for developers to the logger.
 ---
 ---@param ... any Any arguments.
@@ -373,6 +381,16 @@ end
 ---
 function M.Logger:info(...)
     self:_log_at_level(_LEVELS.info, _MODES.info, function(...)
+        return self:_make_string(...)
+    end, ...)
+end
+
+--- Send a "this is rarely shown, even when debugging" message to the logger.
+---
+---@param ... any Any arguments.
+---
+function M.Logger:trace(...)
+    self:_log_at_level(_LEVELS.trace, _MODES.trace, function(...)
         return self:_make_string(...)
     end, ...)
 end
