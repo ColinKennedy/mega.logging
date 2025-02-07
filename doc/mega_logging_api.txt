@@ -10,7 +10,7 @@ Fields ~
     {float_precision} `(number?)`
        A positive value (max of 1) to indicate the rounding precision. e.g.
        0.01 rounds to every hundredths.
-    {level} "trace" | "debug" | "info" | "warn" | "error" | "fatal"?
+    {level} "trace" | "debug" | "info" | "warning" | "error" | "fatal"?
        The minimum severity needed for this logger instance to output a log.
     {name} `(string?)`
        An identifier for this logger.
@@ -35,7 +35,7 @@ Fields ~
     {float_precision} `(number)`
        A positive value (max of 1) to indicate the rounding precision. e.g.
        0.01 rounds to every hundredths.
-    {level} "trace" | "debug" | "info" | "warn" | "error" | "fatal"
+    {level} "trace" | "debug" | "info" | "warning" | "error" | "fatal"
        The minimum severity needed for this logger instance to output a log.
     {name} `(string)`
        An identifier for this logger.
@@ -53,14 +53,16 @@ Fields ~
        within a libuv thread and don't want to call `vim.schedule()`.
 
 ------------------------------------------------------------------------------
-                                                           *mega.logging.Logger*
+                                                                      *M.Logger*
 
-`mega.logging.Logger`
+`M.Logger`
+
+*mega.logging.Logger*
 
 ------------------------------------------------------------------------------
-                                                   *mega.logging.Logger:debug()*
+                                                              *M.Logger:debug()*
 
-`mega.logging.Logger:debug`({...})
+`M.Logger:debug`({...})
 
 Send a message that is intended for developers to the logger.
 
@@ -68,9 +70,9 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
-                                                   *mega.logging.Logger:error()*
+                                                              *M.Logger:error()*
 
-`mega.logging.Logger:error`({...})
+`M.Logger:error`({...})
 
 Send a "we could not recover from some issue" message to the logger.
 
@@ -78,9 +80,9 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
-                                                   *mega.logging.Logger:fatal()*
+                                                              *M.Logger:fatal()*
 
-`mega.logging.Logger:fatal`({...})
+`M.Logger:fatal`({...})
 
 Send a "this issue affects multiple systems. It's a really bad error" message to the logger.
 
@@ -88,9 +90,9 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
-                                               *mega.logging.Logger:fmt_trace()*
+                                                          *M.Logger:fmt_trace()*
 
-`mega.logging.Logger:fmt_trace`({...})
+`M.Logger:fmt_trace`({...})
 
 Send a "this is rarely shown, even when debugging" message to the logger.
 
@@ -98,9 +100,9 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
-                                               *mega.logging.Logger:fmt_debug()*
+                                                          *M.Logger:fmt_debug()*
 
-`mega.logging.Logger:fmt_debug`({...})
+`M.Logger:fmt_debug`({...})
 
 Send a message that is intended for developers to the logger.
 
@@ -108,9 +110,9 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
-                                               *mega.logging.Logger:fmt_error()*
+                                                          *M.Logger:fmt_error()*
 
-`mega.logging.Logger:fmt_error`({...})
+`M.Logger:fmt_error`({...})
 
 Send a "we could not recover from some issue" message to the logger.
 
@@ -118,9 +120,9 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
-                                               *mega.logging.Logger:fmt_fatal()*
+                                                          *M.Logger:fmt_fatal()*
 
-`mega.logging.Logger:fmt_fatal`({...})
+`M.Logger:fmt_fatal`({...})
 
 Send a "this issue affects multiple systems. It's a really bad error" message to the logger.
 
@@ -128,9 +130,9 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
-                                                *mega.logging.Logger:fmt_info()*
+                                                           *M.Logger:fmt_info()*
 
-`mega.logging.Logger:fmt_info`({...})
+`M.Logger:fmt_info`({...})
 
 Send a user-facing message to the logger.
 
@@ -138,9 +140,9 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
-                                             *mega.logging.Logger:fmt_warning()*
+                                                        *M.Logger:fmt_warning()*
 
-`mega.logging.Logger:fmt_warning`({...})
+`M.Logger:fmt_warning`({...})
 
 Send a "this might be an issue or we recovered from an error" message to the logger.
 
@@ -148,9 +150,9 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
-                                                    *mega.logging.Logger:info()*
+                                                               *M.Logger:info()*
 
-`mega.logging.Logger:info`({...})
+`M.Logger:info`({...})
 
 Send a user-facing message to the logger.
 
@@ -158,9 +160,9 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
-                                                   *mega.logging.Logger:trace()*
+                                                              *M.Logger:trace()*
 
-`mega.logging.Logger:trace`({...})
+`M.Logger:trace`({...})
 
 Send a "this is rarely shown, even when debugging" message to the logger.
 
@@ -168,9 +170,9 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
-                                                 *mega.logging.Logger:warning()*
+                                                            *M.Logger:warning()*
 
-`mega.logging.Logger:warning`({...})
+`M.Logger:warning`({...})
 
 Send a "this might be an issue or we recovered from an error" message to the logger.
 
@@ -178,9 +180,9 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
-                                                     *mega.logging.Logger.new()*
+                                                                *M.Logger.new()*
 
-`mega.logging.Logger.new`({options})
+`M.Logger.new`({options})
 
 Create a new logger according to `options`.
 
@@ -191,18 +193,18 @@ Return ~
     mega.logging.Logger The created instance.
 
 ------------------------------------------------------------------------------
-                                            *mega.logging.Logger:get_log_path()*
+                                                       *M.Logger:get_log_path()*
 
-`mega.logging.Logger:get_log_path`()
+`M.Logger:get_log_path`()
 
 
 Return ~
     `(string)` `(optional)` The path on-disk where logs will be written to.
 
 ------------------------------------------------------------------------------
-                                                     *mega.logging.get_logger()*
+                                                                *M.get_logger()*
 
-`mega.logging.get_logger`({options})
+`M.get_logger`({options})
 
 Find an existing logger with `name` or create one if it does not exist already.
 
@@ -213,9 +215,9 @@ Return ~
     mega.logging.Logger The created instance.
 
 ------------------------------------------------------------------------------
-                                              *mega.logging.set_configuration()*
+                                                         *M.set_configuration()*
 
-`mega.logging.set_configuration`({name}, {options})
+`M.set_configuration`({name}, {options})
 
 Apply `options` to `name` and all child loggers.
 
@@ -223,7 +225,7 @@ If `name` is `"foo.bar"` then `"foo.bar"` will be edited but also so will
 its children `"foo.bar.fizz"`, `"foo.bar.fizz.buzz"`, `"foo.bar.another"`, etc.
 
 Parameters ~
-    {name} `(string)` The logger namespace to start modifying from.
+    {name} `(string?)` The logger namespace to start modifying from.
     {options} mega.logging.SparseLoggerOptions The data to apply.
 
 
