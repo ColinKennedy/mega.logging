@@ -1,9 +1,6 @@
 --- A generalized logging for Lua. It's similar to Python's built-in logger.
----
----@module 'mega.logging'
----
 
----@alias _Level "trace" | "debug" | "info" | "warn" | "error" | "fatal"
+---@alias _Level "trace" | "debug" | "info" | "warning" | "error" | "fatal"
 
 ---@class mega.logging.SparseLoggerOptions
 ---    All of the customizations a person can make to a logger instance.
@@ -230,7 +227,7 @@ function M.Logger:_log_at_level(level, mode, message_maker, ...)
     local lineinfo = info.short_src .. ":" .. info.currentline
 
     if self._use_console then
-        local console_string = string.format("[%-6s%s] %s: %s", nameupper, os.date("%H:%M:%S"), lineinfo, message)
+        local console_string = string.format("[%-8s%s] %s: %s", nameupper, os.date("%H:%M:%S"), lineinfo, message)
 
         if not self.use_neovim_commands then
             local split_console = vim.split(console_string, "\n")
@@ -455,7 +452,7 @@ end
 function _P.get_parent_configuration(logger)
     local parts = vim.fn.split(logger.name, "\\.")
     ---@type mega.logging.SparseLoggerOptions
-    local output = {}
+    local output = vim.tbl_deep_extend("force", M._DEFAULTS, _OPTIONS[_ROOT_NAME] or {})
 
     for index = 1, #parts do
         ---@type string[]
@@ -474,7 +471,7 @@ end
 
 --- Find and re-apply all configurations for all loggers starting with `name`.
 ---
----@param name string A starting point. e.g. `"foo.bar"`.
+---@param name string? A starting point. e.g. `"foo.bar"`.
 ---@private
 ---
 function _P.recompute_loggers(name)
@@ -509,6 +506,7 @@ function M.get_logger(options)
     end
 
     M._LOGGERS[name] = M.Logger.new(options)
+    _P.recompute_loggers(name)
 
     return M._LOGGERS[name]
 end
@@ -518,11 +516,17 @@ end
 --- If `name` is `"foo.bar"` then `"foo.bar"` will be edited but also so will
 --- its children `"foo.bar.fizz"`, `"foo.bar.fizz.buzz"`, `"foo.bar.another"`, etc.
 ---
----@param name string The logger namespace to start modifying from.
+---@param name string? The logger namespace to start modifying from.
 ---@param options mega.logging.SparseLoggerOptions The data to apply.
 ---
 function M.set_configuration(name, options)
-    _OPTIONS[name] = options
+    local key = name
+
+    if not key then
+        key = _ROOT_NAME
+    end
+
+    _OPTIONS[key] = options
 
     _P.recompute_loggers(name)
 end
