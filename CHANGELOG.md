@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/ColinKennedy/mega.logging/compare/v1.1.5...v1.1.6) (2025-02-07)
+
+
+### Bug Fixes
+
+* **config:** loggers now inherit from the root logger ([882eb93](https://github.com/ColinKennedy/mega.logging/commit/882eb9314a941557077675c58f692e0ccf5ff46c))
+
 ## [1.1.5](https://github.com/ColinKennedy/mega.logging/compare/v1.1.4...v1.1.5) (2025-02-07)
 
 
