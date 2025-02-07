@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/ColinKennedy/mega.logging/compare/v1.1.4...v1.1.5) (2025-02-07)
+
+
+### Bug Fixes
+
+* added back a misspelled variable name ([b659286](https://github.com/ColinKennedy/mega.logging/commit/b65928614ec6f1d6411ebcdab4fd68c9992f5f6b))
+
 ## [1.1.4](https://github.com/ColinKennedy/mega.logging/compare/v1.1.3...v1.1.4) (2025-01-11)
 
 
