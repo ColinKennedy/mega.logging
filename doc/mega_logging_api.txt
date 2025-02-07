@@ -88,6 +88,16 @@ Parameters ~
     {...} `(any)` Any arguments.
 
 ------------------------------------------------------------------------------
+                                               *mega.logging.Logger:fmt_trace()*
+
+`mega.logging.Logger:fmt_trace`({...})
+
+Send a "this is rarely shown, even when debugging" message to the logger.
+
+Parameters ~
+    {...} `(any)` Any arguments.
+
+------------------------------------------------------------------------------
                                                *mega.logging.Logger:fmt_debug()*
 
 `mega.logging.Logger:fmt_debug`({...})
@@ -143,6 +153,16 @@ Parameters ~
 `mega.logging.Logger:info`({...})
 
 Send a user-facing message to the logger.
+
+Parameters ~
+    {...} `(any)` Any arguments.
+
+------------------------------------------------------------------------------
+                                                   *mega.logging.Logger:trace()*
+
+`mega.logging.Logger:trace`({...})
+
+Send a "this is rarely shown, even when debugging" message to the logger.
 
 Parameters ~
     {...} `(any)` Any arguments.

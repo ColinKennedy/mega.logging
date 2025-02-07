@@ -16,9 +16,11 @@ mega.logging.Logger:fmt_debug()	mega_logging_api.txt	/*mega.logging.Logger:fmt_d
 mega.logging.Logger:fmt_error()	mega_logging_api.txt	/*mega.logging.Logger:fmt_error()*
 mega.logging.Logger:fmt_fatal()	mega_logging_api.txt	/*mega.logging.Logger:fmt_fatal()*
 mega.logging.Logger:fmt_info()	mega_logging_api.txt	/*mega.logging.Logger:fmt_info()*
+mega.logging.Logger:fmt_trace()	mega_logging_api.txt	/*mega.logging.Logger:fmt_trace()*
 mega.logging.Logger:fmt_warning()	mega_logging_api.txt	/*mega.logging.Logger:fmt_warning()*
 mega.logging.Logger:get_log_path()	mega_logging_api.txt	/*mega.logging.Logger:get_log_path()*
 mega.logging.Logger:info()	mega_logging_api.txt	/*mega.logging.Logger:info()*
+mega.logging.Logger:trace()	mega_logging_api.txt	/*mega.logging.Logger:trace()*
 mega.logging.Logger:warning()	mega_logging_api.txt	/*mega.logging.Logger:warning()*
 mega.logging.LoggerOptions	mega_logging_api.txt	/*mega.logging.LoggerOptions*
 mega.logging.SparseLoggerOptions	mega_logging_api.txt	/*mega.logging.SparseLoggerOptions*
